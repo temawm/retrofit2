@@ -4,12 +4,18 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 suspend fun getProductById(id: Int): Product {
+    val interceptor = HttpLoggingInterceptor().apply {
+         level = HttpLoggingInterceptor.Level.BODY
+    }
+    val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
     val retrofit = Retrofit.Builder()
-        .baseUrl("https://dummyjson.com/")
+        .baseUrl("https://dummyjson.com/").client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val productApi = retrofit.create(ProductAPI::class.java)

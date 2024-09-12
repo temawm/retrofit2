@@ -10,8 +10,12 @@ activityCompose = "1.9.2"
 composeBom = "2024.04.01"
 converter = "2.9.0"
 retrofit = "2.9.0"
+okHttp = "4.9.3"
+logging-interceptor = "4.7.2"
 
 [libraries]
+squareup-okhttp-logging-interceptor = {group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "logging-interceptor"}
+squareup-okhttp = {group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okHttp"}
 squareup-retrofit2 = {group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit"}
 squareup-retrofit-converter = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "converter"}
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }

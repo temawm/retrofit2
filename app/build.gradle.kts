@@ -50,6 +50,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.squareup.okhttp.logging.interceptor)
+    implementation(libs.squareup.okhttp)
     implementation(libs.squareup.retrofit2)
     implementation(libs.squareup.retrofit.converter)
     implementation(libs.androidx.core.ktx)
