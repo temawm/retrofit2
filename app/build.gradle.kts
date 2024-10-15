@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.hilt)
+    kotlin("kapt")
 }
 
 android {
@@ -45,11 +47,16 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/gradle/incremental.annotation.processors"
         }
     }
 }
 
 dependencies {
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt)
+    implementation(libs.hilt.compiler)
+    implementation(libs.coil.compose)
     implementation(libs.squareup.okhttp.logging.interceptor)
     implementation(libs.squareup.okhttp)
     implementation(libs.squareup.retrofit2)
@@ -69,4 +76,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+}
+kapt {
+    correctErrorTypes = true
 }

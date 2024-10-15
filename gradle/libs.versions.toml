@@ -5,15 +5,21 @@ coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.8.5"
+lifecycleRuntimeKtx = "2.8.6"
 activityCompose = "1.9.2"
-composeBom = "2024.04.01"
+composeBom = "2024.09.03"
 converter = "2.9.0"
 retrofit = "2.9.0"
 okHttp = "4.9.3"
 logging-interceptor = "4.7.2"
+coil = "2.0.0"
+hilt = "2.52"
+
 
 [libraries]
+hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt"}
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt"}
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 squareup-okhttp-logging-interceptor = {group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "logging-interceptor"}
 squareup-okhttp = {group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okHttp"}
 squareup-retrofit2 = {group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit"}
@@ -36,4 +42,7 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+
+
 
